@@ -1,10 +1,13 @@
 import React, { type FC } from 'react';
 import { Text } from 'react-native';
+import { Page } from '@/shared/ui/page';
 
 const CreateProfileScreen: FC = () => {
 
   return (
-    <Text>CreateProfileScreen</Text>
+    <Page>
+      <Text>CreateProfileScreen</Text>
+    </Page>
     // <Page 
     //   isLoading={isLoading}
     //   themeLoading='white'

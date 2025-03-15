@@ -4,6 +4,7 @@ import { SCREEN_MAIN } from "@/shared/constants";
 import { HomeStackParamList } from "@/shared/types";
 import { ProfileScreen } from "@/pages/ProfileScreen";
 import { CreateProfileScreen } from "@/pages/CreateProfileScreen";
+import { STYLE_TITLE } from "@/shared/palettes";
 
 const HomeScreen = createStackNavigator<HomeStackParamList>();
 
@@ -13,17 +14,35 @@ const Routing: FC = () => {
 
   return (
     <HomeScreen.Navigator
-      screenOptions={{ headerShown: false }}>
+      screenOptions={{ 
+        headerShown: true 
+      }}>
       <HomeScreen.Screen
         name={SCREEN_MAIN.CREATE_PROFILE}
         component={CreateProfileScreen}
-        // options={{
-        //   headerLeft: () => null,
-        //   headerRight: () => <ButtonSearch onPress={goToSearch}/>,
-        //   headerRightContainerStyle: {
-        //     paddingRight: 16,
-        //   },
-        // }}
+        options={{
+          title: 'Создать личный профиль',
+          headerTitleStyle: {
+            ...STYLE_TITLE,
+          },
+          headerShadowVisible: false,
+          headerTitleAlign: 'center',
+          headerStyle: {
+            height: 44
+          }
+          // headerTitleContainerStyle: {
+          //   flex: 1,
+            // width: '100%',
+            // borderWidth: 1,
+            // borderColor: 'green',
+
+          // },
+          // headerLeft: () => <></>,
+          // headerRight: () => <></>,
+          // headerRightContainerStyle: {
+          //   paddingRight: 16,
+          // },
+        }}
       />
     
       <HomeScreen.Screen

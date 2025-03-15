@@ -1,0 +1,12 @@
+export const COLORS = {
+  BLACK: '#161318',
+  WHITE: '#F8F8FC',
+  DARK_GREY:'#99969B',
+  GREY:'#BEBEBE',
+  LIGHT_GREY:'#BDBDBD',
+  LIGHT_RED:'#FE5A57',
+  RED:'#FF5810',
+  LIGHT_PURPLE: '#EDEAFF',
+  PURPLE: '#7134F3',
+  BACKDROP: 'rgba(0, 0, 0, .2)',
+};
