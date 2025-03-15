@@ -6,6 +6,7 @@ export const COLORS = {
   LIGHT_GREY:'#BDBDBD',
   LIGHT_RED:'#FE5A57',
   RED:'#FF5810',
+  ACTIVE_PURPLE: '#9C76EF',
   LIGHT_PURPLE: '#EDEAFF',
   PURPLE: '#7134F3',
   BACKDROP: 'rgba(0, 0, 0, .2)',

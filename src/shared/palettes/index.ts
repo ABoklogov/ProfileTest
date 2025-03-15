@@ -8,6 +8,14 @@ const STYLE_TITLE = {
   color: COLORS.BLACK,
 };
 
+const STYLE_TEXT_BUTTON = {
+  fontFamily: FONTS.SEMI_BOLD,
+  fontSize: 15,
+  lineHeight: 15,
+  color: '#fff',
+};
+
 export {
   STYLE_TITLE,
+  STYLE_TEXT_BUTTON,
 };
