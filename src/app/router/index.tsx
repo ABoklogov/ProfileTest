@@ -9,9 +9,6 @@ import { STYLE_TITLE } from "@/shared/palettes";
 const HomeScreen = createStackNavigator<HomeStackParamList>();
 
 const Routing: FC = () => {
-
-  
-
   return (
     <HomeScreen.Navigator
       screenOptions={{ 
@@ -30,18 +27,6 @@ const Routing: FC = () => {
           headerStyle: {
             height: 44
           }
-          // headerTitleContainerStyle: {
-          //   flex: 1,
-            // width: '100%',
-            // borderWidth: 1,
-            // borderColor: 'green',
-
-          // },
-          // headerLeft: () => <></>,
-          // headerRight: () => <></>,
-          // headerRightContainerStyle: {
-          //   paddingRight: 16,
-          // },
         }}
       />
     

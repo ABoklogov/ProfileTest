@@ -1,0 +1,1 @@
+export { SelectPhotoBlock } from './ui';

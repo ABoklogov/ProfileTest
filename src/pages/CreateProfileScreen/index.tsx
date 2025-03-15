@@ -1,19 +1,22 @@
 import React, { type FC } from 'react';
-import { Text } from 'react-native';
+import { View } from 'react-native';
 import { Page } from '@/shared/ui/page';
-import { CustomButton } from '@/shared/ui/customButton';
+import { SelectPhotoBlock } from '@/widgets/selectPhotoBlock';
+import { styles } from './styles';
+import { FormCreateProfile } from '@/widgets/formCreateProfile';
+import { FormDecorator } from '@/shared/decorators/formDecorator';
 
 const CreateProfileScreen: FC = () => {
 
   return (
-    <Page>
-      <Text>CreateProfileScreen</Text>
-      <CustomButton 
-        text='Продолжить' 
-        onPress={() => {}} 
-        // disabled={true}
-        theme='White'
-      />
+    <Page style={styles.container}>
+      <FormDecorator>
+        <SelectPhotoBlock />
+
+        <View style={styles.form}>
+          <FormCreateProfile />
+        </View>
+      </FormDecorator>
     </Page>
   );
 };

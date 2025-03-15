@@ -15,7 +15,15 @@ const STYLE_TEXT_BUTTON = {
   color: '#fff',
 };
 
+const STYLE_TEXT = {
+  fontFamily: FONTS.REGULAR,
+  fontSize: 14,
+  lineHeight: 18,
+  color: COLORS.BLACK,
+};
+
 export {
   STYLE_TITLE,
   STYLE_TEXT_BUTTON,
+  STYLE_TEXT,
 };

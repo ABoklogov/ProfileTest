@@ -1,9 +1,9 @@
 import React, { type FC } from 'react';
 import { 
-  Pressable,
   ViewStyle, 
   type StyleProp, 
-  type Insets 
+  type Insets, 
+  TouchableOpacity
 } from 'react-native';
 
 interface CustomPressableProps {
@@ -22,14 +22,14 @@ const CustomPressable: FC<CustomPressableProps> = ({
   hitSlop
 }) => {
   return (
-    <Pressable
-      onPress={onPress}
+    <TouchableOpacity
+      onPress={!disabled ? onPress : () => {}}
       style={style}
-      disabled={disabled}
+      activeOpacity={0.5}
       hitSlop={hitSlop}
     >
       {children}
-    </Pressable>
+    </TouchableOpacity>
   );
 };
 

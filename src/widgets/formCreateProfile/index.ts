@@ -1,0 +1,1 @@
+export { FormCreateProfile } from './ui';
