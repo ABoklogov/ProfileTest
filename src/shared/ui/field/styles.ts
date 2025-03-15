@@ -7,6 +7,11 @@ const styles = StyleSheet.create({
   container: {
     position: 'relative',
   },
+  header: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   input: {
     ...STYLE_TEXT,
     fontSize: 16,
@@ -16,6 +21,7 @@ const styles = StyleSheet.create({
     height: HEIGHT,
     backgroundColor: COLORS.WHITE,
     textAlign: 'auto',
+    textAlignVertical: 'top',
     paddingVertical: PADDING_VERTICAL,
   },
   errMsg: {
@@ -30,6 +36,10 @@ const styles = StyleSheet.create({
   labelRequired: {
     ...STYLE_TEXT,
     color: COLORS.LIGHT_GREY,
+  },
+  rightLabel: {
+    ...STYLE_TEXT,
+    color: COLORS.DARK_GREY,
   }
 });
 

@@ -21,7 +21,8 @@
     "react-native-safe-area-context": "^5.3.0",
     "react-native-screens": "^4.9.2",
     "react-native-shadow-2": "^7.1.1",
-    "react-native-svg": "^15.11.2"
+    "react-native-svg": "^15.11.2",
+    "react-native-switch": "^1.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

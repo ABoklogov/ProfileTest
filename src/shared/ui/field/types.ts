@@ -6,6 +6,7 @@ interface FieldProps extends ViewStyle {
   onChange: (value: string) => void;
   placeholder?: string;
   label?: string;
+  rightLabel?: string;
   autoFocus?: boolean;
   autoComplete?: TextInputProps['autoComplete'];
   keyboardType?: KeyboardTypeOptions;

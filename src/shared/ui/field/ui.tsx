@@ -13,6 +13,7 @@ const Field: FC<FieldProps> = memo(
   value = '',
   placeholder,
   label,
+  rightLabel,
   autoComplete = 'off',
   keyboardType = 'default',
   isSubmitted = false,
@@ -42,12 +43,18 @@ const Field: FC<FieldProps> = memo(
 
   return (
     <View>
-      {label && (
-        <Text style={styles.label}>
-          {label}
-          {required && <Text style={styles.labelRequired}> (обязательно)</Text>}
-        </Text>
-      )}
+      <View style={styles.header}>
+        {label && (
+          <Text style={styles.label}>
+            {label}
+            {required && <Text style={styles.labelRequired}> (обязательно)</Text>}
+          </Text>
+        )}
+        {rightLabel && (
+          <Text style={styles.rightLabel}>{rightLabel}</Text>
+        )}
+      </View>
+
       <View style={styles.container}>
         <TextInput
           {...fieldProps}
@@ -64,10 +71,11 @@ const Field: FC<FieldProps> = memo(
           defaultValue={value}
           onChangeText={onChange}
           autoComplete={autoComplete}
-          placeholderTextColor={COLORS.GREY}
+          placeholderTextColor={COLORS.DARK_GREY}
           cursorColor={COLORS.BLACK}
           multiline={multiline}
           editable={editable}
+          numberOfLines={numberOfLines}
           onBlur={() => setIsFocus(false)}
           onFocus={() => setIsFocus(true)}
           {...fieldProps}

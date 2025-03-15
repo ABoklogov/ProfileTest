@@ -1,4 +1,4 @@
-import React, { useMemo, type FC } from "react";
+import React, { useMemo, useState, type FC } from "react";
 import { styles } from "./styles";
 import { Keyboard, View } from "react-native";
 import { 
@@ -6,16 +6,20 @@ import {
   CHAR_LIMIT, 
   IS_REQUIRED, 
   NICKNAME_VALIDATION, 
-  VALID_EMPTY_FIELD 
+  VALID_EMPTY_FIELD, 
+  CHAR_MAX
 } from "@/shared/ui/field";
 import { Controller, useForm } from "react-hook-form";
 import { CustomButton } from "@/shared/ui/customButton";
+import { COLORS } from "@/shared/constants";
+import { Switch } from "react-native-switch";
 
 interface ICreateProfile {
   nickname: string;
   name: string;
   description: string;
 };
+const MAX_LENGTH_DESCRIPTION = 600;
 
 const FormCreateProfile: FC = () => {
   const {
@@ -27,11 +31,8 @@ const FormCreateProfile: FC = () => {
   } = useForm<ICreateProfile>();
 
   const valuesRequired = watch(['nickname', 'name']);
-
-
-  // const [isHiddenRecoveryPassword, setIsHiddenRecoveryPassword] = useState(true);
+  const [agreement, setAgreement] = useState(true);
   
-
   const submit = async (data: ICreateProfile) => {
     console.log("🚀 ~ submit ~ data:", data)
     Keyboard.dismiss();
@@ -44,6 +45,8 @@ const FormCreateProfile: FC = () => {
       valuesRequired.every(v => v) && 
       Object.values(errors).length === 0)
   }, [valuesRequired, errors]);
+
+  const toggleSwitch = () => setAgreement(!agreement);
 
   return (
     <View style={styles.container}>
@@ -94,8 +97,52 @@ const FormCreateProfile: FC = () => {
             }}
           />
         </View>
-      </View>
 
+        <View style={styles.field}>
+          <Controller
+            name='description'
+            control={control}
+            render={({field: { onChange, value }}) => (
+              <Field 
+                label='Описание'
+                placeholder='Расскажите о себе'
+                autoComplete='username'
+                value={value}
+                onChange={onChange}
+                multiline
+                stylesInput={{ height: 120 }}
+                rightLabel={`${value?.length || 0}/${MAX_LENGTH_DESCRIPTION}`}
+                isSubmitted={isSubmitted}
+                errorMessage={errors.description?.message}
+              />
+            )}
+            rules={{ 
+              minLength: CHAR_LIMIT(2),
+              maxLength: CHAR_MAX(MAX_LENGTH_DESCRIPTION),
+            }}
+          />
+        </View>
+
+        <View style={styles.field}>
+          <Switch
+            renderActiveText={false}
+            renderInActiveText={false}
+            circleSize={27}
+            circleBorderActiveColor={COLORS.PURPLE}
+            circleBorderInactiveColor={'#EAEAEA'}
+            backgroundActive={COLORS.PURPLE}
+            backgroundInactive={'#EAEAEA'}
+            circleActiveColor={COLORS.WHITE}
+            circleInActiveColor={COLORS.WHITE}
+            onValueChange={toggleSwitch}
+            value={agreement}
+            switchWidthMultiplier={1.7}
+            switchLeftPx={3}
+            switchRightPx={3} 
+          />
+        </View>
+      </View>
+     
       <View style={styles.button}>
         <CustomButton 
           text='Продолжить'
