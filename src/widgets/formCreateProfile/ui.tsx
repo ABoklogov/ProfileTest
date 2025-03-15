@@ -13,6 +13,7 @@ import { Controller, useForm } from "react-hook-form";
 import { CustomButton } from "@/shared/ui/customButton";
 import { COLORS } from "@/shared/constants";
 import { Switch } from "react-native-switch";
+import { CustomSwitch } from "@/shared/ui/customSwitch";
 
 interface ICreateProfile {
   nickname: string;
@@ -21,14 +22,24 @@ interface ICreateProfile {
 };
 const MAX_LENGTH_DESCRIPTION = 600;
 
-const FormCreateProfile: FC = () => {
+const FormCreateProfile: FC<ICreateProfile> = ({
+  nickname = '',
+  name = '',
+  description = ''
+}) => {
   const {
     control,
     handleSubmit,
     watch,
     reset,
     formState: { errors, isSubmitted }
-  } = useForm<ICreateProfile>();
+  } = useForm<ICreateProfile>({
+    defaultValues: {
+      nickname,
+      name,
+      description
+    }
+  });
 
   const valuesRequired = watch(['nickname', 'name']);
   const [agreement, setAgreement] = useState(true);
@@ -40,11 +51,11 @@ const FormCreateProfile: FC = () => {
     reset();
   };
 
-  const disabledSubmit = useMemo(() => {
-    return !(
-      valuesRequired.every(v => v) && 
-      Object.values(errors).length === 0)
-  }, [valuesRequired, errors]);
+  const disabledSubmit = useMemo(() => !(
+    valuesRequired.every(v => v) &&
+    Object.values(errors).length === 0 &&
+    agreement
+  ), [valuesRequired, errors, agreement]);
 
   const toggleSwitch = () => setAgreement(!agreement);
 
@@ -123,22 +134,11 @@ const FormCreateProfile: FC = () => {
           />
         </View>
 
-        <View style={styles.field}>
-          <Switch
-            renderActiveText={false}
-            renderInActiveText={false}
-            circleSize={27}
-            circleBorderActiveColor={COLORS.PURPLE}
-            circleBorderInactiveColor={'#EAEAEA'}
-            backgroundActive={COLORS.PURPLE}
-            backgroundInactive={'#EAEAEA'}
-            circleActiveColor={COLORS.WHITE}
-            circleInActiveColor={COLORS.WHITE}
-            onValueChange={toggleSwitch}
+        <View style={styles.switch}>
+          <CustomSwitch 
+            label="Я согласен с условиями пользовательского соглашения"
             value={agreement}
-            switchWidthMultiplier={1.7}
-            switchLeftPx={3}
-            switchRightPx={3} 
+            onChange={toggleSwitch}
           />
         </View>
       </View>

@@ -2,8 +2,8 @@ import React, { type FC } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { SCREEN_MAIN } from "@/shared/constants";
 import { HomeStackParamList } from "@/shared/types";
-import { ProfileScreen } from "@/pages/ProfileScreen";
-import { CreateProfileScreen } from "@/pages/CreateProfileScreen";
+import { ProfileScreen } from "@/pages/profileScreen";
+import { CreateProfileScreen } from "@/pages/createProfileScreen";
 import { STYLE_TITLE } from "@/shared/palettes";
 
 const HomeScreen = createStackNavigator<HomeStackParamList>();

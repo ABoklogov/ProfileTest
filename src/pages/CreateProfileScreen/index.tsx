@@ -14,7 +14,11 @@ const CreateProfileScreen: FC = () => {
         <SelectPhotoBlock />
 
         <View style={styles.form}>
-          <FormCreateProfile />
+          <FormCreateProfile 
+            nickname={''}
+            name={''}
+            description={''}
+          />
         </View>
       </FormDecorator>
     </Page>

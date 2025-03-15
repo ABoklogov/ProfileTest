@@ -10,6 +10,9 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 24,
+  },
+  switch: {
+    marginTop: 24,
   }
 });
 
