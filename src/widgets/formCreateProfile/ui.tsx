@@ -82,6 +82,7 @@ const FormCreateProfile: FC<ICreateProfile> = observer(({
             pattern: NICKNAME_VALIDATION,
             required: IS_REQUIRED, 
             minLength: CHAR_LIMIT(2),
+            maxLength: CHAR_MAX(16),
           }}
         />
 
@@ -105,6 +106,7 @@ const FormCreateProfile: FC<ICreateProfile> = observer(({
               validate: VALID_EMPTY_FIELD,
               required: IS_REQUIRED, 
               minLength: CHAR_LIMIT(2),
+              maxLength: CHAR_MAX(30),
             }}
           />
         </View>

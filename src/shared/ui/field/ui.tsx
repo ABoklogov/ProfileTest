@@ -31,9 +31,7 @@ const Field: FC<FieldProps> = memo(
   const borderColor = useMemo(() => {
     let colorBorder = COLORS.GREY;
 
-    if (isSubmitted && !errorMessage)
-      colorBorder = COLORS.PURPLE;
-    else if (isSubmitted && errorMessage)
+    if (isSubmitted && errorMessage)
       colorBorder = COLORS.LIGHT_RED;
     else if (isFocus)
       colorBorder = COLORS.PURPLE;

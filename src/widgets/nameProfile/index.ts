@@ -1,0 +1,1 @@
+export { NameProfile } from './ui';

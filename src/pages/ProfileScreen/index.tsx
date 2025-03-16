@@ -5,6 +5,7 @@ import { StatusBar, View } from 'react-native';
 import { COLORS } from '@/shared/constants';
 import { HeaderProfile } from '@/widgets/headerProfile';
 import { ContentProfile } from '@/widgets/contentProfile';
+import { NameProfile } from '@/widgets/nameProfile';
 
 const ProfileScreen: FC = () => {
   return (
@@ -14,11 +15,13 @@ const ProfileScreen: FC = () => {
         barStyle="dark-content"
         hidden={false}
       />
-
       <HeaderProfile />
 
       <View style={styles.content}>
-        <ContentProfile/>
+        <View style={styles.name}>
+          <NameProfile />
+        </View>
+        <ContentProfile />
       </View>
     </Page>
   );
