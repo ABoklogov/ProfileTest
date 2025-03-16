@@ -1,5 +1,5 @@
 import { COLORS } from "@/shared/constants";
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   },
   button: {
     marginHorizontal: 15,
-    marginBottom: 20,
+    marginBottom: Platform.OS === 'ios' ? 40 : 20,
   }
 });
 

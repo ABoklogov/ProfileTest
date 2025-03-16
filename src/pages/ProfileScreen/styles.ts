@@ -1,5 +1,5 @@
 import { COLORS } from "@/shared/constants";
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
@@ -18,6 +18,9 @@ const styles = StyleSheet.create({
       { translateY: '-50%' }, 
       { translateX: '-50%' }
     ]
+  },
+  header: {
+    marginTop: Platform.OS === 'ios' ? 63 : 43,
   }
 });
 

@@ -15,7 +15,9 @@ const ProfileScreen: FC = () => {
         barStyle="dark-content"
         hidden={false}
       />
-      <HeaderProfile />
+      <View style={styles.header}>
+        <HeaderProfile />
+      </View>
 
       <View style={styles.content}>
         <View style={styles.name}>
