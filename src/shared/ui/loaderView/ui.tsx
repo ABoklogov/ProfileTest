@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react';
+import React, { type FC, ReactNode } from 'react';
 import { View, ActivityIndicator } from 'react-native';
 import { COLORS } from '@/shared/constants';
 import { styles } from './styles';

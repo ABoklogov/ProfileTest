@@ -9,7 +9,6 @@ import { profileModel } from '@/entities/profile';
 import { observer } from 'mobx-react-lite';
 
 const CreateProfileScreen: FC = observer(() => {
-
   return (
     <Page style={styles.container} isLoading={profileModel.isLoading}>
       <FormDecorator>

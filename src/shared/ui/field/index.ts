@@ -14,5 +14,4 @@ export {
   HEIGHT,
   PADDING_HORIZONT,
   PADDING_VERTICAL,
-  PADDING_ICON
 } from './constants/fieldParams';

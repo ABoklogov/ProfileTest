@@ -1,7 +1,7 @@
 import React, { type FC } from 'react';
 import { styles } from './styles';
 import { CustomPressable } from '@/shared/ui/customPressable';
-import { NotificationIcon } from '@/shared/icons/NotificationIcon';
+import { NotificationIcon } from '@/shared/icons';
 
 const ButtonNotification: FC = () => {  
   return (

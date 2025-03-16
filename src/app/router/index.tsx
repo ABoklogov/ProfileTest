@@ -24,7 +24,8 @@ const Routing: FC = () => {
     <HomeScreen.Navigator
       screenOptions={{ 
         headerShown: true 
-      }}>
+      }}
+    >
       <HomeScreen.Screen
         name={SCREEN_MAIN.CREATE_PROFILE}
         component={CreateProfileScreen}

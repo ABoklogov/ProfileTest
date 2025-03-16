@@ -1,7 +1,7 @@
 import React, { type FC } from 'react';
 import { Text, View } from 'react-native';
 import { styles } from './styles';
-import { SelectPhoto } from '../../features/seleckPhoto';
+import { SelectPhoto } from '@/features/seleckPhoto';
 
 const SelectPhotoBlock: FC = () => {
   return (
