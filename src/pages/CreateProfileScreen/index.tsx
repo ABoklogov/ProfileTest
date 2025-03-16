@@ -1,7 +1,7 @@
 import React, { type FC } from 'react';
 import { View } from 'react-native';
 import { Page } from '@/shared/ui/page';
-import { SelectPhotoBlock } from '@/widgets/selectPhotoBlock';
+import { SelectPhotoBlock } from '@/widgets/selectPhotoProfile';
 import { styles } from './styles';
 import { FormCreateProfile } from '@/widgets/formCreateProfile';
 import { FormDecorator } from '@/shared/decorators/formDecorator';

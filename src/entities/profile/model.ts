@@ -6,6 +6,8 @@ class Profile {
   name = ''
   description = ''
   picture = ''
+  subscriptions = 0
+  subscribers = 0
 
   constructor() {
     makeAutoObservable(this)

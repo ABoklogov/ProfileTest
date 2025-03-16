@@ -1,9 +1,10 @@
 import React, { type FC } from 'react';
 import { Page } from '@/shared/ui/page';
 import { styles } from './styles';
-import { StatusBar } from 'react-native';
+import { StatusBar, View } from 'react-native';
 import { COLORS } from '@/shared/constants';
 import { HeaderProfile } from '@/widgets/headerProfile';
+import { ContentProfile } from '@/widgets/contentProfile';
 
 const ProfileScreen: FC = () => {
   return (
@@ -15,6 +16,10 @@ const ProfileScreen: FC = () => {
       />
 
       <HeaderProfile />
+
+      <View style={styles.content}>
+        <ContentProfile/>
+      </View>
     </Page>
   );
 };

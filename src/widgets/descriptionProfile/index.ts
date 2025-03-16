@@ -1,0 +1,1 @@
+export { DescriptionProfile } from './ui';
