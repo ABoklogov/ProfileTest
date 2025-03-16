@@ -43,10 +43,13 @@ const FormCreateProfile: FC<ICreateProfile> = observer(({
   const [agreement, setAgreement] = useState(false);
   
   const submit = async (data: ICreateProfile) => {
-    console.log("🚀 ~ submit ~ data:", data)
     Keyboard.dismiss();
 
-    await profileModel.setProfile(data);
+    await profileModel.changeProfile({
+      nickname: data.nickname.trim(),
+      name: data.name.trim(),
+      description: data.description.trim()
+    });
 
     navigation.navigate(SCREEN_MAIN.PROFILE);
   };
@@ -150,6 +153,7 @@ const FormCreateProfile: FC<ICreateProfile> = observer(({
           text='Продолжить'
           onPress={handleSubmit(submit)}
           disabled={disabledSubmit}
+          loader={profileModel.isLoadingChange}
         />
       </View>
     </View>

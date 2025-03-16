@@ -6,11 +6,12 @@ import { styles } from './styles';
 import { FormCreateProfile } from '@/widgets/formCreateProfile';
 import { FormDecorator } from '@/shared/decorators/formDecorator';
 import { profileModel } from '@/entities/profile';
+import { observer } from 'mobx-react-lite';
 
-const CreateProfileScreen: FC = () => {
+const CreateProfileScreen: FC = observer(() => {
 
   return (
-    <Page style={styles.container}>
+    <Page style={styles.container} isLoading={profileModel.isLoading}>
       <FormDecorator>
         <SelectPhotoBlock />
 
@@ -24,6 +25,6 @@ const CreateProfileScreen: FC = () => {
       </FormDecorator>
     </Page>
   );
-};
+});
 
 export { CreateProfileScreen };

@@ -16,7 +16,7 @@ const SelectPhoto: FC = observer(() => {
     });
 
     if (assets) {
-      profileModel.setPicture(assets[0]?.uri || '');
+      profileModel.changePicture(assets[0]?.uri || '');
     };
   };
 
