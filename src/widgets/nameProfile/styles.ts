@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   name: {
     fontFamily: FONTS.BOLD,
     fontSize: 16,
-    lineHeight: 16,
+    lineHeight: 18,
     color: '#000',
     textAlign: 'center',
   },
