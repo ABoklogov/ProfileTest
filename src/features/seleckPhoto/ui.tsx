@@ -5,20 +5,30 @@ import { CustomImage } from '@/shared/ui/customImage';
 import { CustomPressable } from '@/shared/ui/customPressable';
 import { CustomShadow } from '@/shared/ui/customShadow';
 import { PlusIcon } from '@/shared/icons';
+import { launchImageLibrary } from 'react-native-image-picker';
+import { profileModel } from '@/entities/profile';
+import { observer } from 'mobx-react-lite';
 
-const SelectPhoto: FC = () => {
-  const onSelectPhoto = () => {
-    
+const SelectPhoto: FC = observer(() => {  
+  const onSelectPhoto = async () => {
+    const { assets } = await launchImageLibrary({
+      mediaType: 'photo'
+    });
+
+    if (assets) {
+      profileModel.setPicture(assets[0]?.uri || '');
+    };
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.containerPhoto}>
         <CustomImage 
-          picture={''} 
+          picture={profileModel.picture} 
           width={100}
           height={100}
           styleContainer={styles.photo}
+          naturalSize={false}
         />
 
         <View style={styles.wrapperButton}>
@@ -35,6 +45,6 @@ const SelectPhoto: FC = () => {
       </View>
     </View>
   );
-};
+});
 
 export { SelectPhoto };

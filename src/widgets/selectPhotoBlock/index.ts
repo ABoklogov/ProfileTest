@@ -1,1 +1,1 @@
-export { SelectPhotoBlock } from './ui/selectPhotoBlock';
+export { SelectPhotoBlock } from './ui';

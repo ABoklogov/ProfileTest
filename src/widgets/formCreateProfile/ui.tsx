@@ -11,27 +11,25 @@ import {
 } from "@/shared/ui/field";
 import { Controller, useForm } from "react-hook-form";
 import { CustomButton } from "@/shared/ui/customButton";
-import { COLORS } from "@/shared/constants";
-import { Switch } from "react-native-switch";
+import { SCREEN_MAIN } from "@/shared/constants";
 import { CustomSwitch } from "@/shared/ui/customSwitch";
+import { useAppNavigation } from "@/shared/hooks";
+import { ICreateProfile, profileModel } from "@/entities/profile";
+import { observer } from "mobx-react-lite";
 
-interface ICreateProfile {
-  nickname: string;
-  name: string;
-  description: string;
-};
 const MAX_LENGTH_DESCRIPTION = 600;
 
-const FormCreateProfile: FC<ICreateProfile> = ({
+const FormCreateProfile: FC<ICreateProfile> = observer(({
   nickname = '',
   name = '',
   description = ''
 }) => {
+  const navigation = useAppNavigation();
+  
   const {
     control,
     handleSubmit,
     watch,
-    reset,
     formState: { errors, isSubmitted }
   } = useForm<ICreateProfile>({
     defaultValues: {
@@ -42,13 +40,15 @@ const FormCreateProfile: FC<ICreateProfile> = ({
   });
 
   const valuesRequired = watch(['nickname', 'name']);
-  const [agreement, setAgreement] = useState(true);
+  const [agreement, setAgreement] = useState(false);
   
   const submit = async (data: ICreateProfile) => {
     console.log("🚀 ~ submit ~ data:", data)
     Keyboard.dismiss();
-  
-    reset();
+
+    await profileModel.setProfile(data);
+
+    navigation.navigate(SCREEN_MAIN.PROFILE);
   };
 
   const disabledSubmit = useMemo(() => !(
@@ -152,6 +152,6 @@ const FormCreateProfile: FC<ICreateProfile> = ({
       </View>
     </View>
   )
-};
+});
 
 export { FormCreateProfile };

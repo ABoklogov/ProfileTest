@@ -33,13 +33,9 @@ const Routing: FC = () => {
       <HomeScreen.Screen
         name={SCREEN_MAIN.PROFILE}
         component={ProfileScreen}
-        // options={{
-        //   headerTitle: () => null,
-        //   headerRight: () => <ButtonSearch onPress={goToSearch}/>,
-        //   headerRightContainerStyle: {
-        //     paddingRight: 16
-        //   },
-        // }}
+        options={{
+          headerShown: false,
+        }}
       />
     </HomeScreen.Navigator>
   );

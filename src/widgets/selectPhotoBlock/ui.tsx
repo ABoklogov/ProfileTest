@@ -1,7 +1,7 @@
 import React, { type FC } from 'react';
 import { Text, View } from 'react-native';
 import { styles } from './styles';
-import { SelectPhoto } from '../seleckPhoto';
+import { SelectPhoto } from '../../features/seleckPhoto';
 
 const SelectPhotoBlock: FC = () => {
   return (
@@ -11,7 +11,6 @@ const SelectPhotoBlock: FC = () => {
       <View style={styles.photo}>
         <SelectPhoto />
       </View>
-      
     </View>
   );
 };

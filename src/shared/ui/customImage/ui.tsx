@@ -8,7 +8,6 @@ const CustomImage: FC<CustomImageProps> = ({
   picture, 
   width, 
   height,
-  url = '',
   styleContainer,
   naturalSize = true,
 }) => {
@@ -74,10 +73,10 @@ const CustomImage: FC<CustomImageProps> = ({
       width, 
       height 
     }}>
-      {!notImage ? (
+      {(!notImage || picture) ? (
         <Image 
           style={[sizesImage, {opacity: isLoadImage ? 1 : 0}]}
-          source={{ uri: `${url}/${picture}` }}
+          source={{ uri: picture ? picture : undefined }}
           onLoad={getSizeImage}
           onError={errorPicture}
         />

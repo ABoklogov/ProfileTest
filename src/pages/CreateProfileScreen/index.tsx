@@ -5,6 +5,7 @@ import { SelectPhotoBlock } from '@/widgets/selectPhotoBlock';
 import { styles } from './styles';
 import { FormCreateProfile } from '@/widgets/formCreateProfile';
 import { FormDecorator } from '@/shared/decorators/formDecorator';
+import { profileModel } from '@/entities/profile';
 
 const CreateProfileScreen: FC = () => {
 
@@ -15,9 +16,9 @@ const CreateProfileScreen: FC = () => {
 
         <View style={styles.form}>
           <FormCreateProfile 
-            nickname={''}
-            name={''}
-            description={''}
+            nickname={profileModel.nickname}
+            name={profileModel.name}
+            description={profileModel.description}
           />
         </View>
       </FormDecorator>
